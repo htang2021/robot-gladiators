@@ -10,6 +10,7 @@ var enemyAttack = 12;
 console.log(enemyNames);
 console.log(enemyNames.length);
 console.log(enemyNames[0]);
+console.log(enemyNames[3]);
 
 // fight function (now with parameter for enemy's name)
 var fight = function(enemyName) {
@@ -27,7 +28,6 @@ var fight = function(enemyName) {
         window.alert(playerName + ' has decided to skip this fight. Goodbye!');
         // subtract money from playerMoney for skipping
         playerMoney = playerMoney - 10;
-        console.log("playerMoney", playerMoney);
 
         break;
       }
@@ -84,14 +84,6 @@ var startGame = function() {
       enemyHealth = 50;
       //debugger; <-- use only if need to enable it.
       fight(pickedEnemyName);
-      
-      //if we are not at the last enemy in the array
-      if (playerHealth > 0 && i < enemyNames.length -1) {
-        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
-        if (storeConfirm) {
-          shop();
-        }
-      }
     }
     else {
       window.alert('You have lost your robot in battle! Game Over!');
@@ -122,45 +114,7 @@ var endGame = function() {
 };
 
 var shop = function () {
-  //ask player what they'd like to do
-  var shopOptionPrompt = prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store?  Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice.");
-
-  switch(shopOptionPrompt) {
-    case "REFILL":
-    case "refill":
-      if (playerMoney >= 7) {
-        alert("Refilling player's health by 20 for 7 dollars.");
-        playerHealth = playerHealth + 20;
-        playerMoney = playerMoney - 7;
-      } else {
-        alert("You don't have enough money!");
-      }
-      break;
-    
-    case "UPGRADE":
-    case "upgrade":
-      if (playerMoney >= 7) {
-        alert("Upgrading player's attack by 6 for 7 dollars.");
-        playerAttack = playerAttack + 6;
-        playerMoney = playerMoney - 7;
-      } else {
-        alert("You don't have enough money!");
-      }
-      break;
-    
-    case "LEAVE":
-    case "leave":
-      alert("Leaving the store.");
-      break;
-    
-    //if other than refill, upgrade, or leave
-    default:
-      alert("You did not pick a valid option.  Try again.");
-      //call shop() again to force player to pick a valid option
-      shop();
-      break;
-
-  }
+  console.log("enter the shop");
 }
 
 // Start the game when the page loads
